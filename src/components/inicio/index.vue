@@ -15,16 +15,7 @@
     <Card />
   </div>
 </template>
-<style>
-/*.contenido {
-  padding: 20px 1px 10px 10px;
-  width: 190px;
-}*/
-.my-card {
-  width: 100%;
-  max-width: 350px;
-}
-</style>
+
 <script>
 import Card from "./card.vue";
 //import operation from "../../composable/index.js";

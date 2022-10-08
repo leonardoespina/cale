@@ -6,7 +6,7 @@ export default createStore({
   state: {
     status: false,
     msg: "",
-
+    step: 1,
     userData: [],
   },
   mutations: {
@@ -21,6 +21,10 @@ export default createStore({
     },
     LIMPIAR(state) {
       state.msg = "";
+    },
+    STEP(state, step) {
+      state.step = step;
+      console.log(state.step);
     },
   },
   actions: {
@@ -50,10 +54,14 @@ export default createStore({
           commit("MSG", `${err.message}`);
         });
     },
+    updateStep({ commit }, step) {
+      commit("STEP", step);
+    },
   },
   getters: {
     listData: (state) => state.userData,
     isStatus: (state) => state.status,
     isMsg: (state) => state.msg,
+    isStep: (state) => state.step,
   },
 });

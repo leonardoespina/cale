@@ -34,7 +34,9 @@
       <!--Inicio Componente de ItemMenu-->
 
       <q-list padding>
-        <div><MenuItem /></div>
+        <div>
+          <MenuItem />
+        </div>
       </q-list>
       <!--Fin del ItemMenu-->
     </q-scroll-area>

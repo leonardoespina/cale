@@ -9,7 +9,7 @@ import { token } from "../composable/bd.js";
 function guardMyroute(to, from, next) {
   let sessionStorage = token(null);
 
-  console.log(to.name);
+  console.log(to.matched[0].name);
 
   if (to.name === "login") {
     if (!sessionStorage) {
@@ -21,7 +21,7 @@ function guardMyroute(to, from, next) {
     if (sessionStorage) {
       let { tipoUsuario } = sessionStorage;
 
-      if (to.name === tipoUsuario) {
+      if (to.matched[0].name === tipoUsuario) {
         if (to.meta.auth === true) {
           if (sessionStorage) {
             next();
@@ -96,9 +96,16 @@ const routes = [
     component: administrador,
     children: [
       {
+        path: "/Administrador/Modulos",
+        //   name: "administrador",
+        //  beforeEnter: guardMyroute,
+        component: () => import("../components/administrador/modulos.vue"),
+      },
+
+      {
         path: "/Administrador/Cursos",
-        name: "administrador",
-        beforeEnter: guardMyroute,
+        //    name: "administradore",
+        // beforeEnter: guardMyroute,
         component: () => import("../components/administrador/cursos.vue"),
       },
     ],
