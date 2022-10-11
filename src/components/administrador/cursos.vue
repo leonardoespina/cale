@@ -12,15 +12,25 @@
         :options="options"
       />
     </q-toolbar>
-    <q-stepper
-      v-model="step"
-      vertical
-      header-nav
-      ref="stepper"
-      color="primary"
-      animated
-    >
-      <Steppertone :num="1"> <DatosCurso /></Steppertone>
+    <q-stepper v-model="step" vertical ref="stepper" color="primary" animated>
+      <!------------------>
+      <Steppertone
+        :posicion="1"
+        :title="'Datos Basicos del Curso'"
+        :icon="'add_box'"
+      >
+        <DatosCurso :posicion="1" />
+      </Steppertone>
+      <!------------------>
+
+      <Steppertone :posicion="2" :title="'Modulos del Curso'" :icon="'add_box'">
+        <RegistroModulo :posicion="2"
+      /></Steppertone>
+      <!------------------>
+      <Steppertone :posicion="3" :title="'Profesores'" :icon="'settings'">
+        <RegistroProfesor :posicion="3"
+      /></Steppertone>
+      <!------------------>
     </q-stepper>
   </div>
 </template>
@@ -34,11 +44,15 @@ import { useStore } from "vuex";
 import Steppertone from "../administrador/formStepper/stepperOne.vue";
 
 import DatosCurso from "../administrador/formStepper/registroCurso.vue";
+import RegistroModulo from "../administrador/formStepper/registroModulo.vue";
+import RegistroProfesor from "../administrador/formStepper/registroProfesor.vue";
 //import hola from "../administrador/formStepper/prueba.vue";
 import { ref, watchEffect } from "vue";
 export default {
   components: {
     Steppertone,
+    RegistroModulo,
+    RegistroProfesor,
 
     DatosCurso,
     //  hola,
